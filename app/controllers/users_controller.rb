@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     #before_action :find_user, except: %i[create index]
  
    # GET /users
+   skip_before_action :verify_authenticity_token, only: :create
    def index
      
      @users = User.all
